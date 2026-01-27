@@ -1,0 +1,62 @@
+---
+import Me from "../components/Me.astro";
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects");
+---
+
+<Layout>
+	<main>
+		<h1 class="dark:text-sky-100 text-center text-4xl font-bold mb-2 font-montserrat">
+			Zahid <span>HM</span>
+		</h1>
+		<h2 class="dark:text-white text-center  font-semibold  font-montserrat">
+			Developer
+		</h1>
+	</main>
+	<section>
+		<Me/>
+	</section>
+	<section aria-label="Mis proyectos">
+		<div class="px-4 mx-auto max-w-screen-2xl">
+			<div class="grid gap-6 md:grid-cols-2">
+				{
+					projects.map((project) => {
+						const { slug, data } = project;
+						const { title, date, img, description } = data;
+						return (
+							<a
+								href={`project/${slug}`}
+								class="mb-2 xl:mb-0 transition hover:scale-110"
+							>
+								<article class="flex flex-col border-2 rounded-xl hover:text-blue-600  hover:prose-p:text-blue-600  transition-colors duration-800">
+									<img
+										transition:name={`img-${slug}`}
+										src={`/${img}`}
+										alt={title}
+										class="mr-5 w-full rounded-xl"
+									/>
+									<div class="flex flex-col justify-center font-montserrat p-2">
+										<h2
+											transition:name={`title-${slug}`}
+											class=" my-1 text-2xl font-bold text-center "
+										>
+											{title}
+										</h2>
+										<span class="my-1 text-xs text-center font-bold ">
+											{date}
+										</span>
+										<p class="prose  font-semibold text-justify max-w-sm ">
+											{description}
+										</p>
+									</div>
+								</article>
+							</a>
+						);
+					})
+				}
+			</div>
+		</div>
+	</section>
+</Layout>

@@ -1,0 +1,40 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+export async function getStaticPaths() {
+    const projects = await getCollection("projects");
+    return projects.map((project) => ({
+        params: {
+            id: project.slug,
+        },
+        props: {
+            project,
+        },
+    }));
+}
+const { project } = Astro.props;
+const { data , slug} = project;
+const { title, img } = data;
+
+const { Content } = await render(project);
+---
+
+<Layout title={`${title} - Zahid`}>
+    <div class="flex gap-12">
+        <aside>
+            <a href='/' class="hover:underline opacity-75">Volver atras</a>
+            <img
+                transition:name={`img-${slug}`}
+                class="rounded w-72 h-auto"
+                src={`/${img}`}
+                alt={title}
+            />
+        </aside>
+        <main>
+            <h1 transition:name={`title-${slug}`} class="text-4xl font-bold mb-4">{title}</h1>
+            <div class="">
+                <Content />
+            </div>
+        </main>
+    </div>
+</Layout>

@@ -1,0 +1,56 @@
+---
+import astroLogo from "../assets/astro.svg";
+import background from "../assets/background.svg";
+---
+
+<div id="container">
+	<main>
+		<div class="relative flex justify-center items-center">
+			<div
+				class="absolute inset-0 bg-linear-to-br from-sky-600 via-cyan-400 to-blue-400  opacity-80 rounded-xl"
+			>
+			</div>
+			<img
+				src="/yo.png"
+				alt=""
+				class="animate-blurred-fade-in animate-duration-[2.2s] animate-delay-500 m-2 w-60 h-60 object-cover mask-radial-at-center mask-radial-from-60% mask-radial-to-64%"
+			/>
+			<div class="absolute bottom-0 flex gap-2 ">
+				<a class="bg-white p-2 rounded animate-tada" href="">
+					<svg class="icon w-10 h-10 fill-blue-500">
+						<use xlink:href="/assets/sprites/sprite.svg#linkedin"
+						></use>
+					</svg>
+				</a>
+				<a
+					class="bg-white p-2 rounded animate-tada animate-delay-800"
+					href=""
+				>
+					<svg class="icon w-10 h-10">
+						<use xlink:href="/assets/sprites/sprite.svg#github"
+						></use>
+					</svg>
+				</a>
+			
+			</div>
+		</div>
+	</main>
+
+	<section class="my-10">
+		<div class="relative flex justify-center items-center">
+			<div
+				class="absolute inset-0 bg-linear-to-br from-sky-600 via-cyan-400 to-blue-400 blur-xs opacity-80 rounded-xl"
+			>
+			</div>
+			<div
+				class="w-full m-1 timeline-view animate-fade-in-up animate-range-[entry_70%_cover_90%] bg-white p-6 rounded-lg"
+			>
+				<p class="text-center font-montserrat font-semibold">
+					Desarrollador apasionado por las nuevas tecnologias ,
+					enfocado en soluciones escalables y sostenibles.
+				</p>
+			</div>
+		</div>
+	</section>
+
+</div>
