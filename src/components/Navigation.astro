@@ -1,55 +1,147 @@
-<div class="p-4 dark:bg-blue-900 dark:text-white">
-    <div class="grid grid-cols-3 grid-rows-1">
-        <div class=""></div>
-        <ul
-            class="flex gap-6 items-center justify-center text-lg font-semibold font-montserrat"
-        >
-            <li
-                class="relative group hover:cursor-pointer hover:animate-pulsing hover:animate-duration-500 p-1"
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div class="p-4 dark:bg-blue-900 dark:text-white sticky top-0 z-100">
+    <div class="hidden md:grid grid-cols-3 grid-rows-1 gap-4">
+        <div class="place-self-center">
+            <button
+                id="btnLight"
+                class="cursor-pointer text-yellow-500 text-2xl bg-sky-300 border-3 rounded-full p-2
+            hidden dark:inline-block"
             >
-                <span class="relative z-10 p-4"> Proyectos </span>
-                <span
-                    class="absolute z-10 left-0 -top-0.5 h-0.5 bg-white transition-all duration-100 w-0 group-hover:w-full"
-                ></span>
-                <span
-                    class="z-0 dark:bg-gray-500 opacity-50 absolute inset-0 rounded-b-full
-            group-hover:bg-sky-500 group-hover:border-sky-500 group-hover:border-2"
-                >
-                </span>
-            </li>
-            <li
-                class="relative group hover:cursor-pointer hover:animate-pulsing hover:animate-duration-500 p-1"
+                <Icon name={"sun"} />
+            </button>
+            <button
+                id="btnDark"
+                class="cursor-pointer text-gray-300 text-2xl bg-sky-800 border-3 rounded-full p-2
+            dark:hidden"
             >
-                <span class="relative z-10 p-4"> Servicios </span>
-                <span
-                    class="absolute z-10 left-0 -top-0.5 h-0.5 bg-white transition-all duration-100 w-0 group-hover:w-full"
-                ></span>
-                <span
-                    class="z-0 dark:bg-gray-500 opacity-50 absolute inset-0 rounded-b-full
-            group-hover:bg-sky-500 group-hover:border-sky-500 group-hover:border-2"
-                >
-                </span>
-            </li>
-            <li
-                class="relative group hover:cursor-pointer hover:animate-pulsing hover:animate-duration-500 p-1"
+                <Icon name={"moon"} />
+            </button>
+        </div>
+        <div class="place-self-center">
+            <ul
+                class="flex gap-2 items-center justify-center font-semibold font-montserrat"
             >
-                <span class="relative z-10 p-4"> Contactame </span>
-                <span
-                    class="absolute z-10 left-0 -top-0.5 h-0.5 bg-white transition-all duration-100 w-0 group-hover:w-full"
-                ></span>
-                <span
-                    class="z-0 dark:bg-gray-500 opacity-50 absolute inset-0 rounded-b-full
-            group-hover:bg-sky-500 group-hover:border-sky-500 group-hover:border-2"
+                <li
+                    class="relative group hover:cursor-pointer hover:animate-pulsing hover:animate-duration-500 p-1"
                 >
-                </span>
-            </li>
-        </ul>
-        <button
-            class="ml-auto px-6 py-2 rounded-xl font-semibold
+                    <span class="relative z-10"> Nosotros </span>
+                    <span
+                        class="absolute z-10 left-0 -top-0.5 h-0.5 bg-white transition-all duration-100 w-0 group-hover:w-full"
+                    ></span>
+                    <span
+                        class="z-0 dark:bg-gray-500 opacity-50 absolute inset-0 rounded-b-md
+            group-hover:bg-sky-500 group-hover:border-sky-500 group-hover:border-2"
+                    >
+                    </span>
+                </li>
+                <li
+                    class="relative group hover:cursor-pointer hover:animate-pulsing hover:animate-duration-500 p-1"
+                >
+                    <span class="relative z-10"> Proyectos </span>
+                    <span
+                        class="absolute z-10 left-0 -top-0.5 h-0.5 bg-white transition-all duration-100 w-0 group-hover:w-full"
+                    ></span>
+                    <span
+                        class="z-0 dark:bg-gray-500 opacity-50 absolute inset-0 rounded-b-md
+            group-hover:bg-sky-500 group-hover:border-sky-500 group-hover:border-2"
+                    >
+                    </span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="place-self-end">
+            <button
+                class="px-6 py-2 rounded-xl font-semibold
           bg-sky-500 hover:bg-sky-600 text-white
           transition-all duration-300 shadow-lg hover:scale-105 cursor-pointer"
+            >
+                Cotizar 🚀
+            </button>
+        </div>
+    </div>
+    <div class="md:hidden flex items-center justify-between">
+        <div>
+            <button
+                id="btnLightMobile"
+                class="text-2xl hidden dark:inline-block text-yellow-500 bg-sky-300 rounded-full p-2"
+            >
+                <Icon name="sun" />
+            </button>
+
+            <button
+                id="btnDarkMobile"
+                class="text-2xl dark:hidden text-gray-300 bg-sky-800 rounded-full p-2"
+            >
+                <Icon name="moon" />
+            </button>
+        </div>
+
+        <!-- Hamburger -->
+        <button id="btnMenu" class="text-3xl cursor-pointer"> ☰ </button>
+    </div>
+    <div
+        id="mobileMenu"
+        class="md:hidden hidden absolute top-full left-0 w-full text-white"
+    >
+        <div
+            class="absolute inset-0 dark:bg-sky-500/30 bg-linear-to-t dark:from-cyan-500/30 dark:to-blue-500/30 backdrop-blur-lg rounded-b-lg"
         >
-            Cotizar 🚀
-        </button>
+        </div>
+        <ul
+            class="relative flex flex-col items-center gap-4 py-6 text-lg font-semibold"
+        >
+            <li>Proyectos</li>
+            <li>Servicios</li>
+            <button class="mt-4 px-6 py-2 rounded-xl bg-white text-sky-600">
+                Cotizar 🚀
+            </button>
+        </ul>
     </div>
 </div>
+
+<script is:inline>
+    document.addEventListener("astro:page-load", () => {
+        const btnLight = document.getElementById("btnLight");
+        const btnDark = document.getElementById("btnDark");
+        btnDark?.addEventListener("click", (e) => {
+            e.preventDefault();
+            console.log("first");
+            document.body.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+        });
+        btnLight?.addEventListener("click", (e) => {
+            e.preventDefault();
+            document.body.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+        });
+        const theme = localStorage.getItem("theme");
+        const systemColor = window.matchMedia("(prefers-color-scheme: dark)")
+            .matches
+            ? "dark"
+            : "light";
+        if (theme) {
+            if (theme === "dark") {
+                document.body.classList.add("dark");
+            } else {
+                document.body.classList.remove("dark");
+            }
+        } else {
+            if (systemColor === "dark") {
+                document.body.classList.add("dark");
+            } else {
+                document.body.classList.remove("dark");
+            }
+        }
+
+        const btnMenu = document.getElementById("btnMenu");
+        const mobileMenu = document.getElementById("mobileMenu");
+
+        btnMenu?.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+        });
+    });
+</script>

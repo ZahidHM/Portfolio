@@ -7,18 +7,6 @@ import { ClientRouter } from "astro:transitions";
 <!doctype html>
 <html lang="en">
 	<head>
-		<script>
-			document.documentElement.classList.toggle(
-				"dark",
-				localStorage.theme === "dark" ||
-					(!("theme" in localStorage) &&
-						window.matchMedia("(prefers-color-scheme: dark)")
-							.matches),
-			);
-			localStorage.theme = "light";
-			localStorage.theme = "dark";
-			localStorage.removeItem("theme");
-		</script>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -27,9 +15,11 @@ import { ClientRouter } from "astro:transitions";
 		<title>Astro Basics</title>
 		<ClientRouter />
 	</head>
-	<body>
-		<Navigation />
-		<div class="bg-gray-600 p-10 dark:bg-linear-to-t from-sky-500 to-sky-900">
+	<body class="dark">
+		<Navigation client:load />
+		<div
+			class="bg-gray-600 p-10 dark:bg-linear-to-t from-sky-500 to-sky-900"
+		>
 			<slot />
 		</div>
 	</body>

@@ -1,13 +1,16 @@
 ---
 import astroLogo from "../assets/astro.svg";
 import background from "../assets/background.svg";
+import { Carrousel } from './me/Carrousel';
+
 ---
 
 <div id="container">
-	<main>
+	<Carrousel client:load/>
+	<!-- <main>
 		<div class="relative flex justify-center items-center">
 			<div
-				class="absolute inset-0 bg-linear-to-br from-sky-600 via-cyan-400 to-blue-400  opacity-80 rounded-xl"
+				class="absolute inset-0 bg-linear-to-br from-sky-600 via-cyan-400 to-blue-400 opacity-80 rounded-xl"
 			>
 			</div>
 			<img
@@ -15,7 +18,7 @@ import background from "../assets/background.svg";
 				alt=""
 				class="animate-blurred-fade-in animate-duration-[2.2s] animate-delay-500 m-2 w-60 h-60 object-cover mask-radial-at-center mask-radial-from-60% mask-radial-to-64%"
 			/>
-			<div class="absolute bottom-0 flex gap-2 ">
+			<div class="absolute bottom-0 flex gap-2">
 				<a class="bg-white p-2 rounded animate-tada" href="">
 					<svg class="icon w-10 h-10 fill-blue-500">
 						<use xlink:href="/assets/sprites/sprite.svg#linkedin"
@@ -31,10 +34,9 @@ import background from "../assets/background.svg";
 						></use>
 					</svg>
 				</a>
-			
 			</div>
 		</div>
-	</main>
+	</main> -->
 
 	<section class="my-10">
 		<div class="relative flex justify-center items-center">
@@ -52,5 +54,4 @@ import background from "../assets/background.svg";
 			</div>
 		</div>
 	</section>
-
 </div>
