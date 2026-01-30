@@ -5,6 +5,40 @@ import { Icon } from "astro-icon/components";
 <div class="p-4 dark:bg-blue-900 dark:text-white sticky top-0 z-100">
     <div class="hidden md:grid grid-cols-3 grid-rows-1 gap-4">
         <div class="place-self-center">
+            <a
+                href="/"
+                class="inline-flex
+                dark:bg-sky-400/20
+                bg-sky-400/30
+                items-center justify-center rounded-full p-2 w-15 h-15"
+            >
+                <img src="/LOGO.png" alt="Logo" class="object-contain" />
+            </a>
+        </div>
+        <div class="place-self-center">
+            <ul
+                class="flex gap-2 items-center justify-center font-semibold font-montserrat"
+            >
+                <li
+                    class="relative group hover:cursor-pointer hover:animate-pulsing hover:animate-duration-500 p-1"
+                >
+                    <span class="relative z-10"> Nosotros </span>
+                    <span
+                        class="absolute z-10 left-0 -bottom-0.5 h-0.5 bg-white transition-all duration-100 w-0 group-hover:w-full"
+                    ></span>
+                </li>
+                <li
+                    class="relative group hover:cursor-pointer hover:animate-pulsing hover:animate-duration-500 p-1"
+                >
+                    <span class="relative z-10"> Proyectos </span>
+                    <span
+                        class="absolute z-10 left-0 -bottom-0.5 h-0.5 bg-white transition-all duration-100 w-0 group-hover:w-full"
+                    ></span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="place-self-end flex items-center gap-4">
             <button
                 id="btnLight"
                 class="cursor-pointer text-yellow-500 text-2xl bg-sky-300 border-3 rounded-full p-2
@@ -19,41 +53,6 @@ import { Icon } from "astro-icon/components";
             >
                 <Icon name={"moon"} />
             </button>
-        </div>
-        <div class="place-self-center">
-            <ul
-                class="flex gap-2 items-center justify-center font-semibold font-montserrat"
-            >
-                <li
-                    class="relative group hover:cursor-pointer hover:animate-pulsing hover:animate-duration-500 p-1"
-                >
-                    <span class="relative z-10"> Nosotros </span>
-                    <span
-                        class="absolute z-10 left-0 -top-0.5 h-0.5 bg-white transition-all duration-100 w-0 group-hover:w-full"
-                    ></span>
-                    <span
-                        class="z-0 dark:bg-gray-500 opacity-50 absolute inset-0 rounded-b-md
-            group-hover:bg-sky-500 group-hover:border-sky-500 group-hover:border-2"
-                    >
-                    </span>
-                </li>
-                <li
-                    class="relative group hover:cursor-pointer hover:animate-pulsing hover:animate-duration-500 p-1"
-                >
-                    <span class="relative z-10"> Proyectos </span>
-                    <span
-                        class="absolute z-10 left-0 -top-0.5 h-0.5 bg-white transition-all duration-100 w-0 group-hover:w-full"
-                    ></span>
-                    <span
-                        class="z-0 dark:bg-gray-500 opacity-50 absolute inset-0 rounded-b-md
-            group-hover:bg-sky-500 group-hover:border-sky-500 group-hover:border-2"
-                    >
-                    </span>
-                </li>
-            </ul>
-        </div>
-
-        <div class="place-self-end">
             <button
                 class="px-6 py-2 rounded-xl font-semibold
           bg-sky-500 hover:bg-sky-600 text-white
@@ -142,6 +141,21 @@ import { Icon } from "astro-icon/components";
 
         btnMenu?.addEventListener("click", () => {
             mobileMenu.classList.toggle("hidden");
+        });
+
+        const btnLightMobile = document.getElementById("btnLightMobile");
+        const btnDarkMobile = document.getElementById("btnDarkMobile");
+
+        btnDarkMobile?.addEventListener("click", (e) => {
+            e.preventDefault();
+            document.body.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+        });
+
+        btnLightMobile?.addEventListener("click", (e) => {
+            e.preventDefault();
+            document.body.classList.remove("dark");
+            localStorage.setItem("theme", "light");
         });
     });
 </script>
