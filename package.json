@@ -13,11 +13,13 @@
     "@tailwindcss/vite": "^4.1.18",
     "@types/react": "^19.2.10",
     "@types/react-dom": "^19.2.3",
+    "@types/styled-components": "^5.1.36",
     "astro": "^5.16.14",
     "astro-icon": "^1.1.5",
     "lucide-react": "^0.563.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
+    "styled-components": "^6.3.8",
     "tailwind-animations": "^1.0.1",
     "tailwindcss": "^4.1.18"
   },
