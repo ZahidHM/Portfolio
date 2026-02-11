@@ -4,17 +4,17 @@ import { useEffect, useState } from "react"
 
 export const Carrousel = () => {
     const content = [
-        { 
-            id: 1, 
-            name: "Zahid Hernandez Mejia", 
+        {
+            id: 1,
+            name: "Zahid Hernandez Mejia",
             img: "/yo.png",
             description: "Desarrollador apasionado por las nuevas tecnologias, enfocado en soluciones escalables y sostenibles.",
-            linkedin: "", 
+            linkedin: "",
             github: "https://github.com/ZahidHM"
         },
-        { 
-            id: 2, 
-            name: "Fernando Aguilar", 
+        {
+            id: 2,
+            name: "Fernando Aguilar",
             img: "/Fer.jpg",
             description: "Desarrollador enfocado en tecnologías modernas.",
             linkedin: "https://www.linkedin.com/in/bryan-fernando-aguilar-torres-05b488354/",
@@ -37,16 +37,17 @@ export const Carrousel = () => {
     return (
         <>
             <div className="flex items-center justify-center w-full ">
-                <button
-                    className="hover:animate-pulse bg-linear-to-br from-slate-600 via-slate-500 to-slate-700
-                     text-2xl  opacity-90 cursor-pointer rounded-l-md p-2"
-                    onClick={handlePrev}>
-                    <ChevronLeft color="white" />
-                </button>
+
                 {content.map((person, index) => index === current && (
-                    <div key={index} className="w-md">
-                        <main>
-                            <div className="relative flex justify-center items-center">
+                    <div key={index} className="w-md ">
+                        <main className="flex justify-center items-center">
+                            <button
+                                className="hover:animate-pulse bg-linear-to-br from-slate-600 via-slate-500 to-slate-700
+                     text-2xl  opacity-90 cursor-pointer rounded-l-md p-2"
+                                onClick={handlePrev}>
+                                <ChevronLeft color="white" />
+                            </button>
+                            <div className="relative flex justify-center items-center  w-full">
                                 <div
                                     className="absolute inset-0 bg-linear-to-br from-slate-600 via-slate-500 to-slate-700 opacity-90 rounded-xl"
                                 >
@@ -77,15 +78,21 @@ export const Carrousel = () => {
                                     </a>
                                 </div>
                             </div>
+                            <button
+                                className="hover:animate-pulse bg-linear-to-br from-slate-600 via-slate-500 to-slate-700 
+                    text-2xl  opacity-90 cursor-pointer rounded-r-md p-2"
+                                onClick={handleNext}>
+                                <ChevronRight color="white" />
+                            </button>
                         </main>
                         <section className="my-10">
-                            <div className="relative flex justify-center items-center">
+                            <div className="relative flex justify-center items-center animate-pop animate-delay-100 animate-duration-900">
                                 <div
                                     className="absolute inset-0 bg-linear-to-br from-slate-600 via-slate-500 to-slate-700 blur-xs opacity-90 rounded-xl"
                                 >
                                 </div>
                                 <div
-                                    className="w-full m-1 timeline-view animate-fade-in-up animate-range-[entry_70%_cover_90%] bg-white p-6 rounded-lg"
+                                    className="w-full m-1 timeline-view animate-fade-in-up animate-range-[entry_10%_cover_30%] bg-white p-6 rounded-lg"
                                 >
                                     <p className="text-center font-montserrat font-semibold">
                                         {person.description}
@@ -98,12 +105,7 @@ export const Carrousel = () => {
 
                 )
                 )}
-                <button
-                    className="hover:animate-pulse bg-linear-to-br from-slate-600 via-slate-500 to-slate-700 
-                    text-2xl  opacity-90 cursor-pointer rounded-r-md p-2"
-                    onClick={handleNext}>
-                    <ChevronRight color="white" />
-                </button>
+
             </div>
         </>
     )
